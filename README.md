@@ -1,2 +1,28 @@
 # FaceSwap4UE
 用于虚幻引擎的换脸服务
+
+## 运行平台
+ - 引擎版本：5.1
+ - 操作系统：Windows 10+
+
+## 项目需求
+1. 用户上传一张自己的照片
+2. 场景截图，将截图出来的模特模型的脸换成用户上传的
+### 后端
+  - [ ] 换脸后端服务改造，API
+  - [ ] Earth (Orbit/Moon)
+  - [ ] Mars
+  - [ ] Jupiter
+  - [ ] Saturn
+  - [ ] Uranus
+  - [ ] Neptune
+  - [ ] Comet Haley
+### UE
+  - [ ] 换脸后端服务改造，API
+  - [ ] Earth (Orbit/Moon)
+  - [ ] Mars
+  - [ ] Jupiter
+  - [ ] Saturn
+  - [ ] Uranus
+  - [ ] Neptune
+  - [ ] Comet Haley
