@@ -8,21 +8,12 @@
 ## 项目需求
 1. 用户上传一张自己的照片
 2. 场景截图，将截图出来的模特模型的脸换成用户上传的
+
+## TODO
+
 ### 后端
-  - [ ] 换脸后端服务改造，API
-  - [ ] Earth (Orbit/Moon)
-  - [ ] Mars
-  - [ ] Jupiter
-  - [ ] Saturn
-  - [ ] Uranus
-  - [ ] Neptune
-  - [ ] Comet Haley
+  - [ ] 换脸后端API服务改造
+  - [ ] 服务器部署
 ### UE
-  - [ ] 换脸后端服务改造，API
-  - [ ] Earth (Orbit/Moon)
-  - [ ] Mars
-  - [ ] Jupiter
-  - [ ] Saturn
-  - [ ] Uranus
-  - [ ] Neptune
-  - [ ] Comet Haley
+  - [ ] 运行时截图
+  - [ ] 保存UTexture2D
