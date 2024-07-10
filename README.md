@@ -28,14 +28,14 @@
 
 ### UE插件
 - 以暴露`蓝图节点`形式交付
-- 蓝图异步节点（Http）
-  - [x] 发送处理请求
-  - [x] 回调结果
+- 蓝图异步节点（Http）  
+  :white_check_mark: 发送处理请求  
+  :white_check_mark: 回调结果  
 
 - Utils 蓝图函数库
-  - [x] 运行时截图（异步）
-  - [x] 获取本地图片
-  - [x] 保存图片到本地
+  :white_check_mark: 运行时截图（异步）  
+  :white_check_mark: 获取本地图片  
+  :white_check_mark: 保存图片到本地  
 
 - 后期服务器部署`未来`
    - [ ] 从账户获取图片（异步）`未来`
