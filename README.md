@@ -12,7 +12,11 @@
 
 ## 文档
 - 在线[项目文档](https://github.com/Circle1688/FaceSwap4UE/blob/main/Documents/FaceSwap4UE.md)
-- 推荐克隆该仓库，在本地打开`Documents/FaceSwap4UE.html`，可连带大纲目录一起浏览，方便跳转
+- 推荐克隆该仓库，在本地目录下运行
+  ```
+  git clone https://github.com/Circle1688/FaceSwap4UE
+  ```
+  在本地打开`Documents/FaceSwap4UE.html`，可连带大纲目录一起浏览，方便跳转
 
 
 ## TODO
