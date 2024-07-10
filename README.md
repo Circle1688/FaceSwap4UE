@@ -32,7 +32,7 @@
   :white_check_mark: 发送处理请求  
   :white_check_mark: 回调结果  
 
-- Utils 蓝图函数库
+- Utils 蓝图函数库  
   :white_check_mark: 运行时截图（异步）  
   :white_check_mark: 获取本地图片  
   :white_check_mark: 保存图片到本地  
