@@ -1,0 +1,621 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>FaceSwap4UE</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#faceswap4ue-技术文档">FaceSwap4UE 技术文档</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#简介">简介</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#架构示意">架构示意</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#运行要求">运行要求</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#后端部署">后端部署</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一安装cuda">一、安装CUDA</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1检查电脑的nvidia版本">1、检查电脑的NVIDIA版本</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2下载所需cuda版本">2、下载所需CUDA版本</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3cuda安装">3、CUDA安装</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#4检查是否成功安装">4、检查是否成功安装</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#二安装cudnn">二、安装cuDNN</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1下载所需cudnn版本">1、下载所需cuDNN版本</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2配置环境变量">2、配置环境变量</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3验证配置是否成功">3、验证配置是否成功</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#三本地部署后端">三、本地部署后端</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#插件安装">插件安装</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#安装要求">安装要求</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#从ide中进行源码构建">从IDE中进行源码构建</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#预编译">预编译</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#蓝图节点">蓝图节点</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#总览">总览</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#face-swap">Face Swap</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#capture">Capture</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#async-capture-texture2d">Async Capture Texture2D</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#convert">Convert</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#binary-image-to-texture-2d">Binary Image to Texture 2D</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#file">File</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#load-file-to-bytes">Load File to Bytes</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#save-bytes-to-file">Save Bytes to File</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#file-dialog">File Dialog</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#open-image-file-dialog">Open Image File Dialog</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#save-image-file-dialog">Save Image File Dialog</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h2 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#示例">示例</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#场景截图">场景截图</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#上传头像">上传头像</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#换脸">换脸</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#保存结果图像">保存结果图像</a></div><ul class="outline-children"></ul></li></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='faceswap4ue-技术文档'><span>FaceSwap4UE 技术文档</span></h1><h2 id='简介'><span>简介</span></h2><p><span>在虚幻引擎中，场景里有一角色，上传一张自定义的头像图片，将上传的脸替换到场景里的角色上，并保存为图片。</span></p><p>&nbsp;</p><p><span>本项目基于</span><strong><span>FaceFusion</span></strong><span>，项目地址 </span><a href='https://github.com/facefusion/facefusion' target='_blank' class='url'>https://github.com/facefusion/facefusion</a></p><h2 id='架构示意'><span>架构示意</span></h2><p><img src="assets/img_v3_02cl_afc01476-e4de-47b2-b2ee-d6b5b4d4eccg.jpg" alt="img_v3_02cl_afc01476-e4de-47b2-b2ee-d6b5b4d4eccg" style="zoom: 50%;" /><span> </span></p><p><span>ue客户端发送生成请求至FaceFusion后端，并回调结果。</span></p><p><strong><span>参数：</span></strong></p><ul><li><p><span>参考头像</span></p></li><li><p><span>要替换的目标图片</span></p></li></ul><p><strong><span>返回</span></strong></p><ul><li><p><span>替换好的图片</span></p></li></ul><h2 id='运行要求'><span>运行要求</span></h2><ul><li><p><strong><span>操作系统</span></strong><span>：Windows 10 +</span></p></li><li><p><strong><span>NVIDIA</span></strong><span>显卡</span></p></li></ul><h2 id='后端部署'><span>后端部署</span></h2><h3 id='一安装cuda'><span>一、安装CUDA</span></h3><h4 id='1检查电脑的nvidia版本'><span>1、检查电脑的NVIDIA版本</span></h4><p><span>首先先按 </span><strong><span>Win键 + R键</span></strong><span>，打开</span><strong><span>Windows命令</span></strong><span>运行框，并输入 </span><strong><span>cmd</span></strong></p><p><span>回车（Enter）打开</span><strong><span>Windows控制台命令</span></strong><span>窗口，输入  </span><strong><span>nvidia-smi</span></strong><span>   回车得到以下窗口</span></p><p><img src="assets/image-20240709183723670.png" referrerpolicy="no-referrer" alt="image-20240709183723670"><span> </span></p><p><span>这里的12.3就是驱动对应的</span><strong><span>最高</span></strong><span>版本，我们所安装的CUDA版本</span><strong><span>小于等于</span></strong><span>它即可</span></p><h4 id='2下载所需cuda版本'><span>2、下载所需CUDA版本</span></h4><p><span>选择任意版本号</span><strong><span>小于等于</span></strong><span>上述最高版本的即可</span></p><p><span>CUDA下载官网 </span><a href='https://developer.nvidia.com/cuda-toolkit-archive' target='_blank' class='url'>https://developer.nvidia.com/cuda-toolkit-archive</a></p><h4 id='3cuda安装'><span>3、CUDA安装</span></h4><p><span>运行下载好的程序，等待安装即可完成</span></p><h4 id='4检查是否成功安装'><span>4、检查是否成功安装</span></h4><p><span>打开Windows控制台命令窗口，输入  </span><strong><span>nvcc -V</span></strong><span> （注意-前有空格）回车得到以下窗口</span></p><p><img src="assets/image-20240709183846164.png" referrerpolicy="no-referrer" alt="image-20240709183846164"><span> </span></p><p><span>安装成功</span></p><h3 id='二安装cudnn'><span>二、安装cuDNN</span></h3><h4 id='1下载所需cudnn版本'><span>1、下载所需cuDNN版本</span></h4><p><span>选择跟自己的cuda版本适配的cuDNN版本</span></p><p><span>cuDNN下载官网 </span><a href='https://developer.nvidia.com/rdp/cudnn-download' target='_blank' class='url'>https://developer.nvidia.com/rdp/cudnn-download</a></p><h4 id='2配置环境变量'><span>2、配置环境变量</span></h4><p><span>我们先把下载的 cuDNN 解压缩，会得到下面的文件</span></p><p><img src="assets/image-20240709204658927.png" referrerpolicy="no-referrer" alt="image-20240709204658927"><span> </span></p><p><span>下载后发现其实cudnn不是一个exe文件，而是一个压缩包，解压后，有三个文件夹，把三个文件夹拷贝到cuda的安装目录下</span></p><p><span>CUDA 默认的安装路径如下</span></p><p><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1</code></p><p><span>拷贝时看到，CUDA 的安装目录中，有和 cuDNN 解压缩后的同名文件夹，这里注意，不需要担心，直接复制即可。cuDNN 解压缩后的同名文件夹中的配置文件会添加到 CUDA安装目录中的同名文件夹中</span></p><p><span>cuDNN 其实是 CUDA 的一个补丁，专为深度学习运算进行优化的。</span></p><p>&nbsp;</p><p><span>往系统环境变量中的 path 添加如下路径（根据自己的路径进行修改）</span></p><p><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin</code>
+<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include</code>
+<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\lib</code>
+<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp</code></p><h4 id='3验证配置是否成功'><span>3、验证配置是否成功</span></h4><p><span>配置完成后，我们可以验证是否配置成功，主要使用CUDA内置的deviceQuery.exe 和 bandwidthTest.exe：</span></p><p><span>首先win+R启动cmd，cd到安装目录下的 …\extras\demo_suite</span></p><p><span>输入 </span><code>.\deviceQuery.exe</code><span> 命令，观察窗口输出结果。</span></p><p><span>继续输入 </span><code>.\bandwidthTest.exe</code><span> 命令，两条命令都出现 </span><strong><code>PASS</code></strong><span> 说明 </span><code>cudnn</code><span> 环境配置成功。</span></p><p>&nbsp;</p><h3 id='三本地部署后端'><span>三、本地部署后端</span></h3><p><span>将后端压缩包解压缩，任意路径均可以</span></p><p><img src="assets/image-20240709182728431.png" referrerpolicy="no-referrer" alt="image-20240709182728431"><span> </span></p><p><span>双击运行</span><code>run_server.bat</code><span>，弹出下面窗口</span></p><p><img src="assets/image-20240709231642979.png" referrerpolicy="no-referrer" alt="image-20240709231642979"><span> </span></p><p><span>后端部署完成</span></p><h2 id='插件安装'><span>插件安装</span></h2><h3 id='安装要求'><span>安装要求</span></h3><ul><li><p><strong><span>虚幻引擎版本</span></strong><span>：Unreal Engine 5.3</span></p></li><li><p><strong><span>操作系统</span></strong><span>：Windows 10 +</span></p><p>&nbsp;</p></li></ul><p><span>接下来从以下两种可选方式安装</span></p><h3 id='从ide中进行源码构建'><span>从IDE中进行源码构建</span></h3><p><span>从IDE（VS、Rider）中进行源码构建请遵从以下步骤：</span></p><ol start='' ><li><p><span>在项目目录中创建</span><code>Plugins</code><span>文件夹</span></p></li><li><p><span>将插件移动到Plugins目录下</span></p></li><li><p><span>刷新解决方案</span></p></li><li><p><span>启动编译</span></p></li></ol><h3 id='预编译'><span>预编译</span></h3><ol start='' ><li><p><span>在项目目录中创建</span><code>Plugins</code><span>文件夹</span></p></li><li><p><span>将预编译好的插件移动到Plugins目录下</span></p></li><li><p><span>启动项目</span></p></li></ol><p>&nbsp;</p><p><span>此时打开插件面板，可以看到FaceSwap4UE插件已启用</span></p><p><img src="assets/image-20240710155342191.png" referrerpolicy="no-referrer" alt="image-20240710155342191"><span>  </span></p><p>&nbsp;</p><h2 id='蓝图节点'><span>蓝图节点</span></h2><h3 id='总览'><span>总览</span></h3><p><span>搜索 faceswap，出现以下函数</span></p><p><img src="assets/image-20240710092114993.png" referrerpolicy="no-referrer" alt="image-20240710092114993"><span> </span></p><p><span>共分为五大类</span></p><ul><li><p><span>Capture：捕获截图</span></p></li><li><p><span>Convert：转换</span></p></li><li><p><span>File：读写</span></p></li><li><p><span>File Dialog：选择文件</span></p></li><li><p><span>Face Swap：换脸服务</span></p></li></ul><h3 id='face-swap'><span>Face Swap</span></h3><p><img src="assets/image-20240710092422042.png" referrerpolicy="no-referrer" alt="image-20240710092422042"><span> </span></p><p><strong><span>Face Swap</span></strong><span>节点为蓝图异步节点</span></p><figure class='table-figure'><table><thead><tr><th><span>输入引脚</span></th><th style='text-align:left;' ><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>Url</span></td><td style='text-align:left;' ><span>字符串</span></td><td><span>FaceFusion服务器地址，不需要路由地址，连接地址 例如 </span><a href='http://127.0.0.1:8000' target='_blank' class='url'>http://127.0.0.1:8000</a><span>，后面不带斜杠</span></td></tr><tr><td><span>In Ref Image Data</span></td><td style='text-align:left;' ><span>字节数组</span></td><td><span>输入的头像二进制数据，注意是图像，不是Texture2D</span></td></tr><tr><td><span>In Target Image Data</span></td><td style='text-align:left;' ><span>字节数组</span></td><td><span>输入的目标图像二进制数据，注意是图像，不是Texture2D</span></td></tr></tbody></table></figure><figure class='table-figure'><table><thead><tr><th><span>输出引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>On Progress</span></td><td><span>执行</span></td><td><span>正在生成</span></td></tr><tr><td><span>On Success</span></td><td><span>执行</span></td><td><span>生成成功</span></td></tr><tr><td><span>On Failure</span></td><td><span>执行</span></td><td><span>生成失败</span></td></tr><tr><td><span>Code</span></td><td><span>整数</span></td><td><span>状态码，参考下面状态码说明</span></td></tr><tr><td><span>Texture Raw Data Bytes</span></td><td><span>字节数组</span></td><td><span>生成的图像二进制数据，可以存为png（服务器默认图像压缩格式）或是通过网络传输</span></td></tr><tr><td><span>Message</span></td><td><span>字符串</span></td><td><span>处理消息</span></td></tr></tbody></table></figure><figure class='table-figure'><table><thead><tr><th><span>状态码</span></th><th><span>含义</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>200</span></td><td><span>请求成功</span></td><td><span>服务器正常完成请求</span></td></tr><tr><td><span>201</span></td><td><span>请求已创建</span></td><td><span>正在生成的时候会返回，表示服务器已接受并开始处理</span></td></tr><tr><td><span>400</span></td><td><span>请求参数错误，服务器拒绝处理</span></td><td><span>通常为客户端的图像参数有误，例如图像为空</span></td></tr><tr><td><span>404</span></td><td><span>无法找到服务器</span></td><td><span>服务器不在线或客户端断网</span></td></tr><tr><td><span>500</span></td><td><span>服务器内部错误，无法完成请求</span></td><td><span>生成出错了</span></td></tr><tr><td><span>502</span></td><td><span>作为网关或代理角色的服务器，从上游服务器中接收到的响应是无效的</span></td><td><span>代理服务器例如Nginx正常响应，但FaceFusion不在线</span></td></tr><tr><td><span>其他</span></td><td><span>网络上查资料</span></td><td>&nbsp;</td></tr></tbody></table></figure><h3 id='capture'><span>Capture</span></h3><h4 id='async-capture-texture2d'><span>Async Capture Texture2D</span></h4><p><img src="assets/image-20240710095321614.png" referrerpolicy="no-referrer" alt="image-20240710095321614"><span> </span></p><p><strong><span>Async Capture Texture2D</span></strong><span>节点为蓝图异步节点</span></p><p><strong><span>不会捕获UI</span></strong><span>，图像分辨率为当前视口分辨率</span></p><figure class='table-figure'><table><thead><tr><th><span>输出引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>On Success</span></td><td><span>执行</span></td><td><span>截图成功</span></td></tr><tr><td><span>On Fail</span></td><td><span>执行</span></td><td><span>截图失败</span></td></tr><tr><td><span>Out Texture</span></td><td><span>Texture2D</span></td><td><span>截图的纹理2D</span></td></tr><tr><td><span>Out Binary Image</span></td><td><span>字节数组</span></td><td><span>截图的图像二进制数据</span></td></tr></tbody></table></figure><h3 id='convert'><span>Convert</span></h3><h4 id='binary-image-to-texture-2d'><span>Binary Image to Texture 2D</span></h4><p><img src="assets/image-20240710100019819.png" referrerpolicy="no-referrer" alt="image-20240710100019819"><span> </span></p><p><span>工具函数，用于转换二进制图像到Texture2D，支持常见的图像格式，png、jpg、bmp等</span></p><figure class='table-figure'><table><thead><tr><th><span>输入引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>Binary Image</span></td><td><span>字节数组</span></td><td><span>图像二进制数据</span></td></tr></tbody></table></figure><figure class='table-figure'><table><thead><tr><th><span>输出引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>Texture2D</span></td><td><span>Texture2D</span></td><td><span>转换后的纹理</span></td></tr></tbody></table></figure><p>&nbsp;</p><h3 id='file'><span>File</span></h3><h4 id='load-file-to-bytes'><span>Load File to Bytes</span></h4><p><img src="assets/image-20240710100413105.png" referrerpolicy="no-referrer" alt="image-20240710100413105"><span> </span></p><p><span>工具函数，加载本地的文件到字节数组</span></p><figure class='table-figure'><table><thead><tr><th><span>输入引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>File Path</span></td><td><span>字符串</span></td><td><span>文件路径</span></td></tr></tbody></table></figure><figure class='table-figure'><table><thead><tr><th><span>输出引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>Success</span></td><td><span>布尔</span></td><td><span>是否成功，文件不存在时会返回假</span></td></tr><tr><td><span>Out Data</span></td><td><span>字节数组</span></td><td><span>二进制数据</span></td></tr></tbody></table></figure><p>&nbsp;</p><h4 id='save-bytes-to-file'><span>Save Bytes to File</span></h4><p><img src="assets/image-20240710100432965.png" referrerpolicy="no-referrer" alt="image-20240710100432965"><span> </span></p><p><span>工具函数，保存字节数组到本地的文件，可覆盖</span></p><figure class='table-figure'><table><thead><tr><th><span>输入引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>File Path</span></td><td><span>字符串</span></td><td><span>要保存的文件路径</span></td></tr><tr><td><span>In File Data</span></td><td><span>字节数组</span></td><td><span>二进制数据</span></td></tr></tbody></table></figure><figure class='table-figure'><table><thead><tr><th><span>输出引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>Return Value</span></td><td><span>布尔</span></td><td><span>是否成功</span></td></tr></tbody></table></figure><p>&nbsp;</p><h3 id='file-dialog'><span>File Dialog</span></h3><h4 id='open-image-file-dialog'><span>Open Image File Dialog</span></h4><p><img src="assets/image-20240710154026053.png" referrerpolicy="no-referrer" alt="image-20240710154026053"><span> </span></p><p><span>打开图像文件选择对话框（仅运行时）</span></p><p><span>支持png、jpg、bmp等格式</span></p><figure class='table-figure'><table><thead><tr><th><span>输入引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>Default Path</span></td><td><span>字符串</span></td><td><span>默认路径</span></td></tr></tbody></table></figure><figure class='table-figure'><table><thead><tr><th><span>输出引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>File Path</span></td><td><span>字符串</span></td><td><span>选择的文件路径</span></td></tr><tr><td><span>Return Value</span></td><td><span>布尔</span></td><td><span>是否已选择，如果取消就返回假</span></td></tr></tbody></table></figure><p>&nbsp;</p><h4 id='save-image-file-dialog'><span>Save Image File Dialog</span></h4><p><img src="assets/image-20240710154050352.png" referrerpolicy="no-referrer" alt="image-20240710154050352"><span> </span></p><p><span>保存文件选择框（仅运行时）</span></p><p><span>该节点只保存PNG格式图像（FaceFusion服务器默认图像压缩格式）</span></p><figure class='table-figure'><table><thead><tr><th><span>输入引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>Default Path</span></td><td><span>字符串</span></td><td><span>默认路径</span></td></tr><tr><td><span>Default File Name</span></td><td><span>字符串</span></td><td><span>默认文件名（不带扩展名）</span></td></tr></tbody></table></figure><figure class='table-figure'><table><thead><tr><th><span>输出引脚</span></th><th><span>类型</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>File Path</span></td><td><span>字符串</span></td><td><span>保存的文件路径</span></td></tr><tr><td><span>Return Value</span></td><td><span>布尔</span></td><td><span>是否已保存，如果取消就返回假</span></td></tr></tbody></table></figure><p>&nbsp;</p><h2 id='示例'><span>示例</span></h2><p><span>下面演示使用以上蓝图节点组合的最小示例</span></p><p><span>进入插件内容，打开</span><strong><span>Map_Demo</span></strong><span>关卡，运行</span></p><p><img src="assets/image-20240710155737647.png" referrerpolicy="no-referrer" alt="image-20240710155737647"><span> </span></p><p><span>打开蓝图示例 </span><strong><span>WBP_Main</span></strong></p><p><img src="assets/image-20240710155903341.png" referrerpolicy="no-referrer" alt="image-20240710155903341"><span> </span></p><p><span>蓝图示例如下</span></p><p><img src="assets/image-20240710160144203.png" referrerpolicy="no-referrer" alt="image-20240710160144203"><span> </span></p><p>&nbsp;</p><h3 id='场景截图'><span>场景截图</span></h3><p><img src="assets/image-20240710103149196.png" referrerpolicy="no-referrer" alt="image-20240710103149196"><span> </span></p><h3 id='上传头像'><span>上传头像</span></h3><p><img src="assets/image-20240710154315224.png" referrerpolicy="no-referrer" alt="image-20240710154315224"><span>  </span></p><h3 id='换脸'><span>换脸</span></h3><p><img src="assets/image-20240710103442896.png" referrerpolicy="no-referrer" alt="image-20240710103442896"></p><p><strong><span>换脸所使用的字节数组为图像二进制数据</span></strong></p><h3 id='保存结果图像'><span>保存结果图像</span></h3><p><img src="assets/image-20240710154341269.png" referrerpolicy="no-referrer" alt="image-20240710154341269"><span> </span></p><p>&nbsp;</p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
