@@ -22,9 +22,9 @@
 ## TODO
 
 ### 后端
-基于FaceFusion 项目地址：https://github.com/facefusion/facefusion
-  - [ ] FaceFusion后端API服务改造（GPU服务器处理速度很快，不考虑并发问题）
-  - [ ] 本地部署（虚拟环境 py3.10）未来可改服务器部署
+基于FaceFusion 项目地址：https://github.com/facefusion/facefusion  
+  :white_check_mark: FaceFusion后端API服务改造（GPU服务器处理速度很快，不考虑并发问题）  
+  :white_check_mark: 本地部署（虚拟环境 py3.10）
 
 ### UE插件
 - 以暴露`蓝图节点`形式交付
